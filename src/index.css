@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Scala tutta l'interfaccia (misure in rem) come uno zoom 125% di default,
+       senza intaccare le coordinate del cursore custom né lo scroll. */
+    font-size: 125%;
+  }
+  body {
+    @apply bg-ink-950 text-white font-sans antialiased overflow-x-hidden;
+  }
+  ::selection {
+    @apply bg-orange text-ink-950;
+  }
+  /* Cursore custom attivo: nasconde il puntatore nativo */
+  .cursor-none,
+  .cursor-none * {
+    cursor: none !important;
+  }
+  /* Punto arancione che insegue il mouse (posizione via JS in transform) */
+  .cursor-root {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    pointer-events: none;
+    will-change: transform;
+    transition: opacity 0.25s ease;
+  }
+  .cursor-inner {
+    width: 22px;
+    height: 22px;
+    margin: -11px 0 0 -11px; /* centra il punto sul cursore */
+    border-radius: 9999px;
+    background: #ff5100;
+    box-shadow: 0 0 26px -2px rgba(255, 81, 0, 0.8);
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+  }
+  .cursor-root.is-hover .cursor-inner {
+    transform: scale(2.1);
+    opacity: 0.45;
+  }
+  .cursor-root.is-down .cursor-inner {
+    transform: scale(0.8);
+  }
+  /* Scrollbar scura */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0d0d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff5100;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-12;
+  }
+  /* Testo con gradiente arancione */
+  .text-gradient-orange {
+    @apply bg-gradient-to-br from-orange-400 to-orange-600 bg-clip-text text-transparent;
+  }
+  /* Etichetta sezione (kicker) */
+  .kicker {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-orange;
+  }
+  /* Bordo sottile luminoso per le card */
+  .card {
+    @apply relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300;
+  }
+  .card:hover {
+    @apply border-orange/40;
+  }
+}
+
+@layer utilities {
+  /* Grana / rumore cinematografico */
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+  /* Bagliore radiale arancione da posizionare come sfondo */
+  .glow-radial {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 81, 0, 0.18) 0%,
+      rgba(255, 81, 0, 0.06) 35%,
+      transparent 70%
+    );
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+  /* "Liquid glass" per il grande pannello delle sezioni: vetro frost translucido,
+     bordo luminoso, riflesso sul bordo superiore. */
+  .glass-panel {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.015) 30%,
+      rgba(255, 255, 255, 0.03)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    backdrop-filter: blur(30px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 40px 120px -30px rgba(0, 0, 0, 0.85);
+  }
+
+  /* "Liquid glass" stile Apple: vetro molto trasparente, definito da un
+     riflesso luminoso e netto sul bordo (non da un riempimento grigio/chiaro).
+     NB: niente position/pseudo qui, altrimenti rompe il posizionamento assoluto
+     del menu centrato. */
+  .glass-pill {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(26px) saturate(185%);
+    backdrop-filter: blur(26px) saturate(185%);
+    box-shadow:
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.5),
+      inset 0 -8px 20px -12px rgba(255, 255, 255, 0.12),
+      0 8px 28px -14px rgba(0, 0, 0, 0.7);
+  }
+}
