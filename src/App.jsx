@@ -9,17 +9,14 @@ import CasiStudio from './components/CasiStudio'
 import Social from './components/Social'
 import Contatti from './components/Contatti'
 import Footer from './components/Footer'
-import FloatingWhatsApp from './components/FloatingWhatsApp'
 import CursorDot from './components/CursorDot'
 import Intro from './components/Intro'
-import ChalkAnnotation from './components/ChalkAnnotation'
 
 export default function App() {
   return (
     <div className="relative">
       <Intro />
       <CursorDot />
-      <ChalkAnnotation />
       <Nav />
       <main>
         <Hero />
@@ -40,7 +37,6 @@ export default function App() {
         </div>
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   )
 }

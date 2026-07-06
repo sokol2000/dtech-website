@@ -1,36 +1,27 @@
 import { motion } from 'framer-motion'
 import { WordReveal, MagneticButton } from './motion'
-import Logo from './Logo'
 import Icon from './Icons'
-import { CONTACT } from '../content'
+import { CONTACT, SOCIALS } from '../content'
 
 const waLink = `https://wa.me/${CONTACT.whatsapp}`
 
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-[4.5rem]">
-      {/* Sfondo: bagliore + grana + logo gigante sfocato */}
+      {/* Sfondo: solo bagliore + grana (niente watermark) */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-10%] h-[70vh] w-[70vh] -translate-x-1/2 glow-radial" />
-        <motion.div
-          initial={{ opacity: 0, scale: 1.15 }}
-          animate={{ opacity: 0.05, scale: 1 }}
-          transition={{ duration: 1.6, ease: 'easeOut' }}
-          className="absolute right-[-6%] top-1/2 -translate-y-1/2"
-        >
-          <Logo variant="mark" className="h-[80vh] w-auto text-white" />
-        </motion.div>
+        <div className="absolute left-1/2 top-[-6%] h-[70vh] w-[70vh] -translate-x-1/2 glow-radial" />
         <div className="grain-overlay absolute inset-0 opacity-[0.06]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-950 to-transparent" />
       </div>
 
       <div className="container-x">
-        <div className="max-w-4xl">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="kicker"
+            className="kicker justify-center"
           >
             Digital Marketing Studio · Terni
           </motion.span>
@@ -41,40 +32,48 @@ export default function Hero() {
             <WordReveal text="non con **tentativi**." delay={0.85} />
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.7 }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-white/60"
-          >
-            Strategia, branding, contenuti, siti web e advertising dentro un
-            percorso pensato per <span className="text-white">risultati misurabili</span>. Non siamo
-            artisti: abbiamo un metodo.
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.6, duration: 0.7 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-10 flex justify-center"
           >
-            <MagneticButton
-              href="#contatti"
-              className="group inline-flex items-center gap-2 rounded-full bg-orange px-7 py-4 text-base font-bold text-ink-950 shadow-glow animate-pulse-glow"
-            >
-              Parliamo del progetto
-              <Icon name="arrow" className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </MagneticButton>
             <MagneticButton
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              strength={0.25}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-4 text-base font-semibold text-white transition-colors hover:border-white/40"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-orange px-8 py-4 text-base font-bold text-ink-950 shadow-glow animate-pulse-glow"
             >
-              <Icon name="whatsapp" className="h-5 w-5 text-orange" />
+              <Icon name="whatsapp" className="h-5 w-5" />
               Scrivici su WhatsApp
+              <Icon name="arrow" className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </MagneticButton>
+          </motion.div>
+
+          {/* Social — nell'hero su mobile (su desktop stanno nella nav) */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 0.7 }}
+            className="mt-9 flex flex-col items-center gap-4 md:hidden"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
+              Guarda i nostri risultati
+            </span>
+            <div className="flex items-center gap-4">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  className="social-pulse flex h-14 w-14 items-center justify-center rounded-full border border-orange/70 bg-orange/10 text-white transition-colors hover:bg-orange hover:text-ink-950"
+                >
+                  <Icon name={s.icon} className="h-6 w-6" />
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

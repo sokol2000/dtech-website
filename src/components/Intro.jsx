@@ -25,6 +25,12 @@ export default function Intro() {
       setDone(true)
       return
     }
+    // Mostra l'intro UNA sola volta per sessione (non ad ogni reload)
+    if (sessionStorage.getItem('dtech-intro-seen')) {
+      setDone(true)
+      return
+    }
+    sessionStorage.setItem('dtech-intro-seen', '1')
 
     document.body.style.overflow = 'hidden'
     const far = Math.hypot(window.innerWidth, window.innerHeight) * 1.1

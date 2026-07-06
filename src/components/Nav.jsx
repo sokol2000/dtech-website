@@ -56,7 +56,7 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             <div
               data-social-pill
-              className="glass-pill hidden items-center gap-1 rounded-full px-1.5 py-1.5 md:flex"
+              className="glass-pill social-pulse hidden items-center gap-1 rounded-full px-1.5 py-1.5 md:flex"
             >
               {SOCIALS.map((s) => (
                 <a
@@ -77,7 +77,8 @@ export default function Nav() {
               className="glass-pill flex h-11 w-11 items-center justify-center rounded-full text-white lg:hidden"
             >
               <span className="sr-only">Menu</span>
-              <div className="space-y-1.5">
+              <div className="space-y-[5px]">
+                <span className="block h-0.5 w-5 bg-white" />
                 <span className="block h-0.5 w-5 bg-white" />
                 <span className="block h-0.5 w-5 bg-white" />
               </div>
