@@ -7,7 +7,7 @@ const waLink = `https://wa.me/${CONTACT.whatsapp}`
 
 export default function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-[4.5rem]">
+    <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden pb-24 pt-[4.5rem] sm:pb-0">
       {/* Sfondo: solo bagliore + grana (niente watermark) */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-[-6%] h-[70vh] w-[70vh] -translate-x-1/2 glow-radial" />
