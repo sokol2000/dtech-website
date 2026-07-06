@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* le ancore (#chi-siamo, ecc.) si fermano sotto la navbar fissa, con respiro */
+    scroll-padding-top: 6.5rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     /* Mobile/tablet: scala naturale (100%) per proporzioni corrette.

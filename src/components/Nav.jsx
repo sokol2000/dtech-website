@@ -21,6 +21,24 @@ export default function Nav() {
     document.body.style.overflow = open ? 'hidden' : ''
   }, [open])
 
+  // Scroll che CENTRA la sezione nel viewport (se ci sta), altrimenti la porta
+  // in cima sotto la navbar. Chiude anche il menu mobile.
+  const goTo = (e, href) => {
+    if (!href || !href.startsWith('#')) return
+    const el = document.querySelector(href)
+    if (!el) return
+    e.preventDefault()
+    setOpen(false)
+    requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect()
+      const absTop = rect.top + window.scrollY
+      // centra la sezione nel viewport; se è troppo alta, la porta sotto la navbar
+      const topMargin = Math.max((window.innerHeight - rect.height) / 2, 96)
+      window.scrollTo({ top: Math.max(0, absTop - topMargin), behavior: 'smooth' })
+      history.replaceState(null, '', href)
+    })
+  }
+
   return (
     <>
       <motion.header
@@ -44,6 +62,7 @@ export default function Nav() {
               <li key={l.href}>
                 <a
                   href={l.href}
+                  onClick={(e) => goTo(e, l.href)}
                   className="block whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-white/80 transition-colors duration-200 hover:bg-white/10 hover:text-white"
                 >
                   {l.label}
@@ -118,7 +137,7 @@ export default function Nav() {
                 >
                   <a
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => goTo(e, l.href)}
                     className="block border-b border-white/10 py-4 text-3xl font-bold text-white/90"
                   >
                     {l.label}

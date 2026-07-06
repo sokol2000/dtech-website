@@ -32,7 +32,7 @@ const BELIEFS = [
 
 export default function ChiSiamo() {
   return (
-    <section id="chi-siamo" className="relative py-12 md:py-16">
+    <section id="chi-siamo" className="relative py-12 md:py-14">
       <div className="container-x">
         <SectionHeader
           kicker="Chi siamo"
@@ -45,7 +45,7 @@ export default function ChiSiamo() {
         />
 
         {/* Storia centrata, asciutta */}
-        <div className="mx-auto mt-6 max-w-2xl space-y-3 text-center md:mt-8">
+        <div className="mx-auto mt-5 max-w-2xl space-y-3 text-center md:mt-6">
           <Reveal delay={0.1}>
             <p className="text-base leading-relaxed text-white/70 sm:text-lg">
               Tutto è nato da una cosa che ci faceva <span className="text-white">rabbia</span>: vedere
@@ -63,7 +63,7 @@ export default function ChiSiamo() {
         </div>
 
         {/* Manifesto: cosa crediamo */}
-        <div className="mx-auto mt-8 grid max-w-4xl gap-3 sm:grid-cols-3 sm:gap-4 md:mt-10">
+        <div className="mx-auto mt-6 grid max-w-4xl gap-3 sm:grid-cols-3 sm:gap-4 md:mt-8">
           {BELIEFS.map((b, i) => (
             <Reveal key={b.n} delay={0.2 + i * 0.08}>
               <div className="flex h-full flex-row items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left sm:flex-col sm:gap-3 sm:p-5 sm:text-center">
