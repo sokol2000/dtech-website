@@ -52,8 +52,8 @@ export default function Nav() {
         <nav className="container-x relative flex h-[4.5rem] items-center justify-between">
           {/* Logo a sinistra */}
           <a href="#top" className="flex items-center gap-2.5 text-white transition-transform hover:scale-[1.03]">
-            <Logo variant="mark" className="h-8 w-auto text-white" />
-            <span className="text-lg font-extrabold tracking-tight">D-Tech</span>
+            <Logo variant="mark" className="h-9 w-auto text-white" />
+            <span className="text-xl font-extrabold tracking-tight">D-Tech</span>
           </a>
 
           {/* Menu centrato orizzontalmente in una pill "liquid glass" */}

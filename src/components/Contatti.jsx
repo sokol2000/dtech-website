@@ -26,13 +26,12 @@ export default function Contatti() {
     'w-full rounded-xl border border-white/10 bg-ink-950/60 px-4 py-3 text-white placeholder-white/30 outline-none transition-colors focus:border-orange'
 
   return (
-    <section id="contatti" className="relative py-28 md:py-36">
+    <section id="contatti" className="relative py-16 md:py-24">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[50vh] w-[80vh] -translate-x-1/2 glow-radial opacity-50" />
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <span className="kicker justify-center">
-              <span className="h-px w-8 bg-orange" />
               Contatti
             </span>
           </Reveal>

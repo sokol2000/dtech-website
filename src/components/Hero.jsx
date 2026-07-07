@@ -8,9 +8,12 @@ const waLink = `https://wa.me/${CONTACT.whatsapp}`
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden pb-24 pt-[4.5rem] sm:pb-0">
-      {/* Sfondo: solo bagliore + grana (niente watermark) */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      {/* Sfondo: bagliore + anelli concentrici (anchor geometrico discreto) + grana */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-[-6%] h-[70vh] w-[70vh] -translate-x-1/2 glow-radial" />
+        <div className="absolute left-1/2 top-1/2 h-[132vmin] w-[132vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.035]" />
+        <div className="absolute left-1/2 top-1/2 h-[92vmin] w-[92vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045]" />
+        <div className="absolute left-1/2 top-1/2 h-[54vmin] w-[54vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.055]" />
         <div className="grain-overlay absolute inset-0 opacity-[0.06]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-950 to-transparent" />
       </div>
@@ -26,8 +29,10 @@ export default function Hero() {
             Digital Marketing Studio · Terni
           </motion.span>
 
-          <h1 className="mt-6 font-display text-5xl font-extrabold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-            <WordReveal text="Crescita digitale con **metodo**," delay={0.35} />
+          <h1 className="mt-6 font-display text-[2rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl sm:leading-[0.98] md:text-7xl lg:text-[5.5rem]">
+            <WordReveal text="Crescita digitale" delay={0.35} />
+            <br />
+            <WordReveal text="con **metodo**," delay={0.6} />
             <br />
             <WordReveal text="non con **tentativi**." delay={0.85} />
           </h1>
@@ -42,7 +47,7 @@ export default function Hero() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-orange px-8 py-4 text-base font-bold text-ink-950 shadow-glow animate-pulse-glow"
+              className="group inline-flex items-center gap-3 rounded-full bg-orange px-10 py-5 text-[1.05rem] font-bold text-ink-950 shadow-glow animate-pulse-glow"
             >
               <Icon name="whatsapp" className="h-5 w-5" />
               Scrivici su WhatsApp

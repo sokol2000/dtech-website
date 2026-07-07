@@ -7,7 +7,8 @@ const BELIEFS = [
     n: '01',
     body: (
       <>
-        La crescita non è fortuna. È un <span className="text-orange">sistema che si ripete</span>.
+        La crescita non è fortuna.
+        <br />È un <span className="text-orange">sistema che si ripete</span>.
       </>
     ),
   },
@@ -15,8 +16,8 @@ const BELIEFS = [
     n: '02',
     body: (
       <>
-        I <span className="text-orange">like</span> non pagano gli stipendi. I{' '}
-        <span className="text-orange">risultati</span> sì.
+        I <span className="text-orange">like</span> non pagano gli stipendi.
+        <br />I <span className="text-orange">risultati</span> sì.
       </>
     ),
   },
@@ -24,7 +25,8 @@ const BELIEFS = [
     n: '03',
     body: (
       <>
-        Il tuo business non è un esperimento. Merita un <span className="text-orange">metodo</span>.
+        Il tuo business non è un esperimento.
+        <br />Merita un <span className="text-orange">metodo</span>.
       </>
     ),
   },
@@ -62,12 +64,20 @@ export default function ChiSiamo() {
           </Reveal>
         </div>
 
-        {/* Manifesto: cosa crediamo */}
-        <div className="mx-auto mt-6 grid max-w-4xl gap-3 sm:grid-cols-3 sm:gap-4 md:mt-8">
+        {/* Manifesto: cosa crediamo — 3 card */}
+        <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-3 md:mt-10">
           {BELIEFS.map((b, i) => (
             <Reveal key={b.n} delay={0.2 + i * 0.08}>
-              <div className="flex h-full flex-row items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left sm:flex-col sm:gap-3 sm:p-5 sm:text-center">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange/15 font-display text-sm font-bold text-orange">
+              <div
+                className={`flex h-full flex-col items-center gap-4 rounded-2xl border p-6 text-center ${
+                  i === 1 ? 'border-orange/25 bg-white/[0.055]' : 'border-white/10 bg-white/[0.02]'
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-full font-display text-sm font-bold text-orange ${
+                    i === 1 ? 'bg-orange/25' : 'bg-orange/15'
+                  }`}
+                >
                   {b.n}
                 </span>
                 <p className="text-base font-semibold leading-relaxed text-white/90">{b.body}</p>

@@ -5,12 +5,11 @@ import { CASES } from '../content'
 
 export default function CasiStudio() {
   return (
-    <section id="clienti" className="relative py-28 md:py-36">
+    <section id="clienti" className="relative py-16 md:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <span className="kicker justify-center">
-              <span className="h-px w-8 bg-orange" />
               I nostri clienti
             </span>
           </Reveal>

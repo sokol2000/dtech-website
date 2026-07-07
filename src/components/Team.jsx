@@ -4,12 +4,11 @@ import { TEAM } from '../content'
 
 export default function Team() {
   return (
-    <section id="team" className="relative py-28 md:py-36">
+    <section id="team" className="relative py-16 md:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <span className="kicker justify-center">
-              <span className="h-px w-8 bg-orange" />
               Team management
             </span>
           </Reveal>

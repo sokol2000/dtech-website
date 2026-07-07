@@ -12,7 +12,7 @@ export default function Metodo() {
   const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1])
 
   return (
-    <section id="metodo" className="relative py-28 md:py-36">
+    <section id="metodo" className="relative py-16 md:py-24">
       <div className="container-x grid gap-16 lg:grid-cols-2">
         {/* Timeline */}
         <div ref={timelineRef} className="relative">
@@ -43,7 +43,6 @@ export default function Metodo() {
         <div className="flex flex-col justify-center">
           <Reveal>
             <span className="kicker">
-              <span className="h-px w-8 bg-orange" />
               Il nostro metodo
             </span>
           </Reveal>
