@@ -40,7 +40,7 @@ export default function Servizi() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section id="servizi" className="relative py-14 md:py-18">
+    <section id="servizi" className="relative py-12 md:py-14">
       <div className="container-x">
         <SectionHeader
           kicker="Cosa facciamo"

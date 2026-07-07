@@ -5,7 +5,7 @@ import { CASES } from '../content'
 
 export default function CasiStudio() {
   return (
-    <section id="clienti" className="relative py-16 md:py-24">
+    <section id="clienti" className="relative py-12 md:py-14">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
@@ -23,46 +23,56 @@ export default function CasiStudio() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-14 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {CASES.map((c, i) => (
             <Reveal key={c.client} delay={(i % 4) * 0.08} y={30}>
-              <motion.button
+              <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className="group relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-ink-800 text-left"
-                aria-label={`Caso studio ${c.client}`}
+                className="group flex h-full flex-col items-center rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center transition-[border-color,background-color,box-shadow] duration-300 hover:border-orange/40 hover:bg-white/[0.05] hover:shadow-2xl"
               >
-                {/* frame video verticale (placeholder) */}
-                <div className="relative aspect-[9/16] overflow-hidden bg-gradient-to-b from-ink-700 via-ink-800 to-ink-950">
-                  <div className="absolute inset-0 glow-radial opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  {/* play */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-ink-950/50 backdrop-blur transition-all duration-300 group-hover:border-orange group-hover:bg-orange group-hover:text-ink-950">
-                      <Icon name="play" className="ml-1 h-6 w-6" />
-                    </span>
-                  </div>
-                  <div className="absolute left-3 top-3 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-orange backdrop-blur">
-                    {c.tag}
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950 to-transparent p-4">
-                    <div className="text-xs font-medium text-white/50">Caso studio</div>
-                    <div className="font-display text-lg font-bold text-white">{c.client}</div>
-                  </div>
+                {/* Logo cliente (chip circolare) */}
+                <div className="relative h-28 w-28 overflow-hidden rounded-full bg-ink-950 ring-1 ring-white/10 transition-transform duration-500 ease-out group-hover:scale-105">
+                  <img
+                    src={c.logo}
+                    alt={c.client}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-                <div className="flex items-center gap-2 p-4">
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange" />
-                  <span className="text-sm font-medium text-white/70">{c.result}</span>
+
+                <span className="mt-5 text-[10px] font-bold uppercase tracking-[0.18em] text-orange">
+                  {c.tag}
+                </span>
+                <h3 className="mt-1.5 font-display text-lg font-bold leading-tight text-white">
+                  {c.client}
+                </h3>
+
+                {/* Social */}
+                <div className="mt-5 flex items-center gap-3">
+                  <a
+                    href={c.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Instagram di ${c.client}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:border-orange hover:bg-orange hover:text-ink-950"
+                  >
+                    <Icon name="instagram" className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={c.tiktok}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`TikTok di ${c.client}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:border-orange hover:bg-orange hover:text-ink-950"
+                  >
+                    <Icon name="tiktok" className="h-5 w-5" />
+                  </a>
                 </div>
-              </motion.button>
+              </motion.div>
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={0.2}>
-          <p className="mt-8 text-center text-sm text-white/40">
-            I video dei casi studio verranno collegati a breve.
-          </p>
-        </Reveal>
       </div>
     </section>
   )

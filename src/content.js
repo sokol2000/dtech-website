@@ -1,5 +1,18 @@
 /* Contenuti del sito D-Tech Studios — un solo posto da editare per i testi. */
 
+// Immagini importate come moduli: Vite riscrive i path correttamente anche
+// sotto il subpath di GitHub Pages (es. /dtech-website/).
+import teamDario from './assets/team/dario-testarella.webp'
+import teamDiego from './assets/team/diego-testarella.webp'
+import teamFilippoM from './assets/team/filippo-mostarda.webp'
+import teamFilippoR from './assets/team/filippo-rossi.webp'
+import teamMauro from './assets/team/mauro-rossi.webp'
+import teamNoemi from './assets/team/noemi-rossi.webp'
+import logoAutoscuola from './assets/clients/autoscuola-ternana.webp'
+import logoCustode from './assets/clients/il-custode-del-tempo.webp'
+import logoOsaka from './assets/clients/osaka.webp'
+import logoPaci from './assets/clients/paciautoquattro.webp'
+
 export const CONTACT = {
   email: 'info@dtechstudiosrl.com',
   phoneDisplay: '+39 342 743 6643',
@@ -97,36 +110,48 @@ export const METHOD_STEPS = [
   { n: '08', title: 'Social Media Management', text: 'Gestiamo, misuriamo e miglioriamo di continuo.' },
 ]
 
+// Founder: true → prima riga, ritratto più grande. bio = testo che appare in hover.
 export const TEAM = [
-  { role: 'Il Boss', tag: 'Founder', text: 'Direzione e visione commerciale.' },
-  { role: 'Lo Stratega', tag: 'Strategy', text: 'Strategia, posizionamento e piani di crescita.' },
-  { role: 'Il Creativo', tag: 'Creative', text: 'Visual, contenuti e identità del brand.' },
-  { role: 'Il Regista', tag: 'Content', text: 'Video, format e produzione contenuti.' },
+  { name: 'Dario Testarella', photo: teamDario, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', founder: true, linkedin: '#' },
+  { name: 'Diego Testarella', photo: teamDiego, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', founder: true, linkedin: '#' },
+  { name: 'Filippo Mostarda', photo: teamFilippoM, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
+  { name: 'Filippo Rossi', photo: teamFilippoR, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
+  { name: 'Mauro Rossi', photo: teamMauro, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
+  { name: 'Noemi Rossi', photo: teamNoemi, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
 ]
 
+// logo: importato da src/assets/clients. video: da collegare più avanti.
 export const CASES = [
   {
     client: 'Autoscuola Ternana',
     tag: 'Video · Social',
-    result: 'La più virale del Centro Italia',
+    logo: logoAutoscuola,
+    instagram: 'https://www.instagram.com/autoscuolaternana/',
+    tiktok: 'https://www.tiktok.com/@autoscuolaternana',
     video: 'caso-studio-autoscuola-ternana.mp4',
   },
   {
     client: 'Il Custode del Tempo',
     tag: 'Branding · Video',
-    result: 'Punto di riferimento del lusso a Terni',
+    logo: logoCustode,
+    instagram: 'https://www.instagram.com/ilcustodedeltempo/',
+    tiktok: 'https://www.tiktok.com/@ilcustodedeltempo',
     video: 'caso-studio-custode-del-tempo-orologi-1.mp4',
   },
   {
-    client: 'Sushi · Terni',
+    client: 'Osaka',
     tag: 'Content · ADV',
-    result: 'Il sushi più virale di Terni',
+    logo: logoOsaka,
+    instagram: 'https://www.instagram.com/osakaterni/',
+    tiktok: 'https://www.tiktok.com/@osakaterni',
     video: 'caso-studio-sushi-terni.mp4',
   },
   {
-    client: 'You Immobiliare',
-    tag: 'TikTok · Lead',
-    result: 'Milioni di views, richieste reali',
+    client: 'PaciAutoquattro',
+    tag: 'Social · Video',
+    logo: logoPaci,
+    instagram: 'https://www.instagram.com/paciautoquattro/',
+    tiktok: 'https://www.tiktok.com/@paciautoquattrospa',
     video: null,
   },
 ]

@@ -10,3 +10,7 @@ shots/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# asset sorgente originali (pesanti) — le versioni ottimizzate sono in src/assets
+/team/
+/clients_icon/

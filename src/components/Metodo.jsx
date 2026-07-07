@@ -1,77 +1,121 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { Reveal, WordReveal } from './motion'
+import SectionHeader from './SectionHeader'
+import Icon from './Icons'
 import { METHOD_STEPS } from '../content'
 
-export default function Metodo() {
-  const timelineRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ['start 65%', 'end 60%'],
-  })
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1])
+/*
+ * Il Percorso Kaizen — roadmap verticale, non un elenco.
+ * Desktop: i nodi corrono sulla linea centrale, i contenuti si alternano
+ *          sinistra/destra (zig-zag) → percorso, non lista.
+ * Mobile:  timeline unica centrata (nessuna alternanza).
+ * La linea è segmentata (connettori tra i nodi): resta pulita sopra il
+ * glass-panel e si "disegna" entrando in vista → senso di avanzamento.
+ * Solo transform/opacity → animazioni GPU-friendly, niente layout shift.
+ */
 
+// Connettore verticale che si disegna (scaleY 0→1) quando entra in vista.
+function Connector() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-30px' })
   return (
-    <section id="metodo" className="relative py-16 md:py-24">
-      <div className="container-x grid gap-16 lg:grid-cols-2">
-        {/* Timeline */}
-        <div ref={timelineRef} className="relative">
-          {/* binario */}
-          <div className="absolute left-[19px] top-2 h-[calc(100%-1rem)] w-px bg-white/10" />
-          <motion.div
-            style={{ scaleY: lineScale }}
-            className="absolute left-[19px] top-2 h-[calc(100%-1rem)] w-px origin-top bg-orange shadow-glow"
-          />
-          <ul className="space-y-7">
-            {METHOD_STEPS.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.05} y={20}>
-                <li className="flex items-start gap-5">
-                  <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-orange/50 bg-ink-950 text-xs font-bold text-orange">
-                    {step.n}
-                  </div>
-                  <div className="pt-1.5">
-                    <h3 className="font-display text-lg font-bold text-white">{step.title}</h3>
-                    <p className="text-sm text-white/50">{step.text}</p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
+    <div
+      ref={ref}
+      className="relative h-11 w-px overflow-hidden rounded-full bg-white/10 transition-shadow duration-500 group-hover:shadow-glow md:h-14"
+    >
+      <motion.span
+        initial={{ scaleY: 0 }}
+        animate={inView ? { scaleY: 1 } : {}}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 origin-top bg-orange-400 shadow-glow transition-opacity duration-500"
+      />
+    </div>
+  )
+}
 
-        {/* Racconto */}
-        <div className="flex flex-col justify-center">
-          <Reveal>
-            <span className="kicker">
-              Il nostro metodo
-            </span>
-          </Reveal>
-          <h2 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
-            <WordReveal text="Il Percorso **Kaizen**." />
-          </h2>
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/65">
-            <Reveal delay={0.1}>
-              <p>
-                Accompagniamo i nostri clienti seguendo la filosofia{' '}
-                <span className="font-semibold text-white">KAIZEN</span>, l’arte giapponese del
-                miglioramento continuo.
-              </p>
+export default function Metodo() {
+  return (
+    <section id="metodo" className="relative py-12 md:py-14">
+      <div className="container-x">
+        <SectionHeader
+          kicker="Il nostro metodo"
+          title={<WordReveal text="Il Percorso **Kaizen**." />}
+          sub={
+            <>
+              Ogni progetto segue un processo preciso, perché la crescita non nasce
+              dall’improvvisazione.
+            </>
+          }
+        />
+
+        {/* Roadmap centrata: elemento visivo dominante della sezione */}
+        <ol className="mx-auto mt-12 flex max-w-3xl flex-col items-center md:mt-16">
+          {METHOD_STEPS.map((step, i) => {
+            const left = i % 2 === 0
+            return (
+              <li key={step.n} className="group w-full">
+                {/* riga nodo + contenuto (alternato su desktop) */}
+                <div className="grid grid-cols-1 justify-items-center gap-y-3 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-8 md:gap-y-0">
+                  {/* Nodo numerato */}
+                  <div className="md:col-start-2 md:row-start-1 md:justify-self-center">
+                    <Reveal delay={i * 0.06} y={14}>
+                      <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-orange/60 bg-ink-900 font-display text-sm font-bold text-orange transition-all duration-300 ease-out group-hover:scale-110 group-hover:border-orange group-hover:shadow-glow">
+                        {step.n}
+                      </div>
+                    </Reveal>
+                  </div>
+
+                  {/* Titolo + descrizione */}
+                  <div
+                    className={`w-full text-center md:row-start-1 ${
+                      left
+                        ? 'md:col-start-1 md:justify-self-end md:text-right'
+                        : 'md:col-start-3 md:justify-self-start md:text-left'
+                    }`}
+                  >
+                    <Reveal delay={i * 0.06 + 0.05} y={14}>
+                      <div className="mx-auto max-w-xs md:mx-0 md:max-w-[17rem]">
+                        <h3 className="font-display text-xl font-bold leading-snug text-white/90 transition-colors duration-300 group-hover:text-white md:text-[1.35rem]">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2.5 text-sm leading-relaxed text-white/45 transition-colors duration-300 group-hover:text-white/70">
+                          {step.text}
+                        </p>
+                      </div>
+                    </Reveal>
+                  </div>
+                </div>
+
+                {/* Connettore centrale verso il nodo successivo */}
+                <div className="grid justify-items-center py-1 md:grid-cols-[1fr_auto_1fr]">
+                  <div className="md:col-start-2 md:justify-self-center">
+                    <Connector />
+                  </div>
+                </div>
+              </li>
+            )
+          })}
+
+          {/* Conclusione: chiude visivamente il percorso */}
+          <li className="grid justify-items-center text-center">
+            <Reveal delay={0.1} y={14}>
+              <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-orange text-ink-950 shadow-glow">
+                <Icon name="check" className="h-6 w-6" />
+              </div>
             </Reveal>
-            <Reveal delay={0.15}>
-              <p>
-                Partendo dall’ascolto delle tue esigenze, progettiamo un percorso di marketing
-                diretto, strategico e orientato agli obiettivi: un sistema digitale integrato che
-                unisce strategia, branding e sviluppo.
-              </p>
+            <Reveal delay={0.18}>
+              <div className="mt-6 max-w-sm">
+                <h3 className="font-display text-xl font-bold leading-snug text-white md:text-[1.35rem]">
+                  La tua presenza digitale è pronta a crescere.
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-white/50">
+                  Da questo momento inizia il miglioramento continuo.
+                </p>
+              </div>
             </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-white">
-                Una soluzione pensata per imprenditori e professionisti che vogliono evolvere in
-                modo costante e consapevole.
-              </p>
-            </Reveal>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
   )
