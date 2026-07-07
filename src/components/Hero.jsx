@@ -29,7 +29,7 @@ export default function Hero() {
             Digital Marketing Studio · Terni
           </motion.span>
 
-          <h1 className="mt-6 font-display text-[2rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl sm:leading-[0.98] md:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 font-display text-[2.2rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl sm:leading-[0.98] md:text-7xl lg:text-[5.5rem]">
             <WordReveal text="Crescita digitale" delay={0.35} />
             <br />
             <WordReveal text="con **metodo**," delay={0.6} />
@@ -47,7 +47,7 @@ export default function Hero() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-orange px-10 py-5 text-[1.05rem] font-bold text-ink-950 shadow-glow animate-pulse-glow"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-orange px-7 py-3.5 text-base font-bold text-ink-950 shadow-glow animate-pulse-glow sm:gap-3 sm:px-10 sm:py-5 sm:text-[1.05rem]"
             >
               <Icon name="whatsapp" className="h-5 w-5" />
               Scrivici su WhatsApp
