@@ -37,6 +37,8 @@ export function WordReveal({ text, className = '', highlightClass = 'text-gradie
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   const words = text.split(' ')
+  // Reveal parola-per-parola senza maschera: solo opacita + piccola salita.
+  // Nessun overflow -> i discendenti (g, p, y, j) non vengono mai tagliati.
   return (
     <span ref={ref} className={className} style={{ display: 'inline' }}>
       {words.map((word, i) => {
@@ -49,17 +51,24 @@ export function WordReveal({ text, className = '', highlightClass = 'text-gradie
             key={i}
             style={{
               display: 'inline-block',
-              overflow: 'hidden',
+              overflow: 'visible',
               verticalAlign: 'top',
               // spazio extra sotto per non tagliare i discendenti (g, p, y, j)
-              paddingBottom: '0.15em',
-              marginBottom: '-0.15em',
+              paddingBottom: '0.4em',
+              marginBottom: '-0.4em',
             }}
           >
             <motion.span
-              style={{ display: 'inline-block', willChange: 'transform' }}
-              initial={{ y: '125%', opacity: 0 }}
-              animate={inView ? { y: '0%', opacity: 1 } : {}}
+              style={{
+                display: 'inline-block',
+                willChange: 'transform',
+                // il gradiente (bg-clip-text) dipinge solo dentro il box: il padding
+                // estende il box sotto la baseline così copre i discendenti (g, p…)
+                paddingBottom: '0.18em',
+                marginBottom: '-0.18em',
+              }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={inView ? { y: 0, opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: delay + i * stagger, ease: [0.22, 1, 0.36, 1] }}
               className={isHi ? highlightClass : undefined}
             >

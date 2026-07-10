@@ -55,46 +55,73 @@ export const STATS = [
 
 export const VIEWS_COUNT = 542918673
 
-export const SERVICES = [
+/* Servizi: 6 aree, ognuna con lista di servizi (nome — descrizione) e una
+   citazione che chiude la card. Le icone stanno in src/assets/services. */
+export const SERVICE_GROUPS = [
   {
-    icon: 'strategy',
-    title: 'Digital Strategy',
-    text: 'Costruiamo una strategia digitale su misura, allineata agli obiettivi aziendali e orientata ai risultati. Ogni canale ha un ruolo dentro un sistema.',
+    icon: 'strategia',
+    title: 'Strategia e Crescita',
+    items: [
+      { name: 'Brand identity & advisory', desc: 'posizionamento, tone of voice, valori e coerenza del brand' },
+      { name: 'Brand strategy', desc: 'analisi di mercato, target, competitor e piano di posizionamento' },
+      { name: 'Naming e rebranding', desc: 'sviluppo o rinnovamento dell’identità verbale e visiva' },
+      { name: 'Consulenza strategica di comunicazione', desc: 'piani editoriali e calendari integrati multicanale' },
+    ],
+    quote: 'L’obiettivo è conoscere e comprendere il cliente così a fondo che il prodotto o il servizio si venda da solo.',
   },
   {
-    icon: 'social',
-    title: 'Social Media Management',
-    text: 'Gestiamo i tuoi canali social a 360°: pianificazione editoriale, pubblicazione, gestione dell’immagine del brand e ottimizzazione delle performance.',
+    icon: 'creativity',
+    title: 'Contenuti e Creatività',
+    items: [
+      { name: 'Content creation', desc: 'copy, foto, grafiche, caroselli e contenuti short-form' },
+      { name: 'Produzione video', desc: 'reel, spot, video promozionali, backstage e motion graphics' },
+      { name: 'Copywriting', desc: 'testi per sito, social, ADV e newsletter' },
+      { name: 'Fotografia e produzione creativa', desc: 'shooting di prodotto, still life e ritratti di brand' },
+    ],
+    quote: 'I prodotti si creano in fabbrica, i brand si creano nella mente.',
   },
   {
-    icon: 'content',
-    title: 'Content Creation',
-    text: 'Progettiamo e realizziamo contenuti pensati per comunicare, posizionare e convertire: video, reel, post e storytelling di brand.',
+    icon: 'communication',
+    title: 'Campagne e Comunicazione',
+    items: [
+      { name: 'Campagne di comunicazione integrate', desc: 'ideazione e sviluppo di campagne multicanale' },
+      { name: 'Ufficio stampa & PR', desc: 'comunicati e relazioni con i media' },
+      { name: 'Gestione eventi', desc: 'organizzazione, comunicazione e copertura live' },
+      { name: 'Employer branding', desc: 'comunicazione interna e recruiting marketing' },
+    ],
+    quote: 'Le persone non comprano prodotti e servizi, ma relazioni, storie e magia.',
   },
   {
-    icon: 'brand',
-    title: 'Grafica & Visual Brand',
-    text: 'Costruiamo un’identità visiva forte, coerente e riconoscibile: logo design, brand identity, linee guida e materiali digitali e offline.',
-  },
-  {
-    icon: 'consulting',
-    title: 'Consulenza Strategica',
-    text: 'Non partiamo dagli strumenti, ma dagli obiettivi. Analizziamo business, mercato e posizionamento per definire una direzione chiara e sostenibile.',
-  },
-  {
-    icon: 'web',
-    title: 'Siti Web & Soluzioni Digitali',
-    text: 'Progettiamo e sviluppiamo siti web moderni, performanti e orientati alla conversione: siti vetrina, corporate e landing page.',
-  },
-  {
-    icon: 'seo',
-    title: 'Posizionamento SEO',
-    text: 'Ottimizziamo il tuo sito per essere trovato dalle persone giuste, nel momento giusto: keyword, tecnica e contenuti sui motori di ricerca.',
+    icon: 'social-media',
+    title: 'Social Media',
+    items: [
+      { name: 'Social media management', desc: 'gestione quotidiana dei profili: Instagram, TikTok, LinkedIn, Facebook, YouTube…' },
+      { name: 'Piani editoriali social', desc: 'pianificazione dei contenuti su base mensile o trimestrale' },
+      { name: 'Social media advertising', desc: 'campagne a pagamento su Meta Ads, TikTok Ads e LinkedIn Ads' },
+      { name: 'Influencer marketing', desc: 'selezione e gestione delle collaborazioni con i creator' },
+    ],
+    quote: 'Il miglior marketing è quello che non sembra marketing.',
   },
   {
     icon: 'ads',
-    title: 'Campagne Advertising',
-    text: 'Gestiamo campagne pubblicitarie su Meta Ads, Google Ads e TikTok Ads, con budget ottimizzato e monitoraggio costante dei risultati.',
+    title: 'Advertising e Performance',
+    items: [
+      { name: 'Media planning & buying', desc: 'pianificazione degli investimenti in ADV digitale e tradizionale' },
+      { name: 'Google Ads / SEM', desc: 'campagne search e display' },
+      { name: 'SEO', desc: 'ottimizzazione del posizionamento organico' },
+      { name: 'Email marketing & automation', desc: 'newsletter, funnel e CRM' },
+    ],
+    quote: 'Nel tempo che hai impiegato a leggere questa frase sono state inviate 20 milioni di email.',
+  },
+  {
+    icon: 'web',
+    title: 'Digital & Web',
+    items: [
+      { name: 'Web design e sviluppo siti', desc: 'landing page, e-commerce e siti vetrina' },
+      { name: 'UX/UI design', desc: 'esperienza utente e interfacce' },
+      { name: 'Analytics & reporting', desc: 'monitoraggio KPI, dashboard e ottimizzazione dati alla mano' },
+    ],
+    quote: 'Pensa a cosa digiterà l’utente.',
   },
 ]
 

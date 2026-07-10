@@ -19,28 +19,44 @@ function FadeIn({ children, className = '', delay = 0 }) {
   )
 }
 
-/* Sottolineatura "a gesso": due tratti arancioni irregolari, texture realistica. */
+/* Sottolineatura a gesso: tratto dritto e deciso, con grana e bordi ruvidi. */
 function ChalkUnderline({ children }) {
   return (
     <span className="relative inline-block">
       {children}
       <svg
         aria-hidden
-        className="pointer-events-none absolute -bottom-[0.06em] left-[-3%] h-[0.32em] w-[106%] overflow-visible"
-        viewBox="0 0 200 14"
+        className="pointer-events-none absolute -bottom-[0.04em] left-[-2%] h-[0.3em] w-[104%] overflow-visible"
+        viewBox="0 0 200 12"
         preserveAspectRatio="none"
         fill="none"
       >
         <defs>
-          <filter id="chalkFx" x="-10%" y="-60%" width="120%" height="220%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9 1.3" numOctaves="2" seed="7" result="n" />
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="4" />
+          <filter id="chalkStroke" x="-6%" y="-100%" width="112%" height="300%">
+            {/* 1 — bordi sfrangiati da gesso (displacement fine, la linea resta dritta) */}
+            <feTurbulence type="fractalNoise" baseFrequency="0.85 0.9" numOctaves="2" seed="6" result="edge" />
+            <feDisplacementMap in="SourceGraphic" in2="edge" scale="3" result="rough" />
+            {/* 2 — grana: variazione morbida di opacità, senza mai azzerarla */}
+            <feTurbulence type="fractalNoise" baseFrequency="0.5 0.55" numOctaves="3" seed="12" result="grain" />
+            <feColorMatrix
+              in="grain"
+              type="matrix"
+              values="0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 0.7 0.32"
+              result="grainA"
+            />
+            <feComposite in="rough" in2="grainA" operator="in" />
           </filter>
         </defs>
-        <g filter="url(#chalkFx)" stroke="#ff5100" strokeLinecap="round" fill="none">
-          <path d="M5 8 C 46 4.5 92 9.5 132 7 S 186 6 196 8" strokeWidth="5.5" opacity="0.92" />
-          <path d="M9 10.5 C 62 8.5 112 11.5 160 9.5 S 190 9.5 194 10.5" strokeWidth="2.4" opacity="0.5" />
-        </g>
+        <path
+          d="M4 7 L196 6"
+          stroke="#ff5100"
+          strokeWidth="9"
+          strokeLinecap="round"
+          filter="url(#chalkStroke)"
+        />
       </svg>
     </span>
   )
@@ -85,7 +101,7 @@ export default function ChiSiamo() {
             <span className="mr-1 font-serif text-[2rem] not-italic leading-none text-orange sm:mr-2 sm:text-[2.6rem] md:text-[3rem]">
               “
             </span>
-            <span className="font-serif text-[1.45rem] font-medium italic leading-[1.4] tracking-tight text-white sm:text-[1.9rem] md:text-[2.2rem] md:leading-[1.35]">
+            <span className="font-serif text-[1.45rem] font-semibold italic leading-[1.4] tracking-tight text-white sm:text-[1.9rem] md:text-[2.2rem] md:leading-[1.35]">
               Il <ChalkUnderline>marketing</ChalkUnderline> non è più questione di ciò che sai
               produrre, ma della storia che sai raccontare.
             </span>

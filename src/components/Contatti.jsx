@@ -8,7 +8,13 @@ const waLink = `https://wa.me/${CONTACT.whatsapp}`
 const INFO = [
   { icon: 'mail', label: 'Email', value: CONTACT.email, href: `mailto:${CONTACT.email}` },
   { icon: 'phone', label: 'Telefono', value: CONTACT.phoneDisplay, href: `tel:+${CONTACT.phoneRaw}` },
-  { icon: 'pin', label: 'Sede', value: CONTACT.address, href: null },
+  {
+    icon: 'pin',
+    label: 'Sede',
+    value: CONTACT.address,
+    href: 'https://maps.app.goo.gl/gfWDaLVmHfAx8ZYcA',
+    external: true,
+  },
 ]
 
 export default function Contatti() {
@@ -35,21 +41,21 @@ export default function Contatti() {
               Contatti
             </span>
           </Reveal>
-          <h2 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-            <WordReveal text="Pronto a smettere di **giocare**?" />
+          <h2 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+            <WordReveal text="Parliamo del tuo **progetto**." />
           </h2>
           <Reveal delay={0.15}>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">
-              Compila il modulo: prepariamo il messaggio e lo invii direttamente su WhatsApp.
-              Risposta entro 24h lavorative.
+            <p className="mx-auto mt-4 max-w-xl text-base text-white/60 sm:text-lg">
+              Compila il modulo: il messaggio è già pronto per WhatsApp. Rispondiamo entro 24 ore
+              lavorative.
             </p>
           </Reveal>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-5">
+        <div className="mx-auto mt-8 grid max-w-5xl gap-5 md:mt-10 lg:grid-cols-5">
           {/* form */}
           <Reveal className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="card p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="card p-5 md:p-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-white/60">Nome</label>
@@ -65,7 +71,7 @@ export default function Contatti() {
                   <input
                     type="email"
                     className={field}
-                    placeholder="La tua email"
+                    placeholder="La tua email (opzionale)"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                   />
@@ -73,48 +79,33 @@ export default function Contatti() {
               </div>
               <div className="mt-4">
                 <label className="mb-1.5 block text-sm font-medium text-white/60">
-                  Raccontaci qual è il tuo problema n.1 oggi
+                  Come possiamo aiutarti?
                 </label>
                 <textarea
-                  rows={4}
+                  rows={3}
                   className={`${field} resize-none`}
-                  placeholder="Scrivi qui…"
+                  placeholder="Due righe sul tuo progetto…"
                   value={form.messaggio}
                   onChange={(e) => setForm({ ...form, messaggio: e.target.value })}
                 />
               </div>
               <button
                 type="submit"
-                className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-orange py-4 text-base font-bold text-ink-950 shadow-glow transition-transform hover:scale-[1.02]"
+                className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-orange py-3.5 text-base font-bold text-ink-950 shadow-glow transition-transform hover:scale-[1.02]"
               >
                 <Icon name="whatsapp" className="h-5 w-5" />
-                Invia richiesta su WhatsApp
+                Invia su WhatsApp
               </button>
             </form>
           </Reveal>
 
-          {/* info */}
+          {/* info — le tre card si distribuiscono sull'altezza del form:
+              l'ultima (Sede) termina allineata al fondo della card grande */}
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <Reveal delay={0.1}>
-              <a
-                href={waLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-orange to-orange-600 p-5 text-ink-950 transition-transform hover:scale-[1.02]"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-ink-950/15">
-                  <Icon name="whatsapp" className="h-6 w-6" />
-                </span>
-                <span>
-                  <span className="block font-bold">WhatsApp</span>
-                  <span className="text-sm opacity-80">Scrivici per una risposta immediata</span>
-                </span>
-              </a>
-            </Reveal>
             {INFO.map((info, i) => {
               const inner = (
-                <div className="card flex items-center gap-4 p-5">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                <div className="card flex h-full items-center gap-4 p-5">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange">
                     <Icon name={info.icon} className="h-6 w-6" />
                   </span>
                   <span>
@@ -126,9 +117,13 @@ export default function Contatti() {
                 </div>
               )
               return (
-                <Reveal key={info.label} delay={0.15 + i * 0.08}>
+                <Reveal key={info.label} delay={0.15 + i * 0.08} className="flex-1">
                   {info.href ? (
-                    <a href={info.href} className="block transition-transform hover:scale-[1.01]">
+                    <a
+                      href={info.href}
+                      {...(info.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="block h-full transition-transform hover:scale-[1.01]"
+                    >
                       {inner}
                     </a>
                   ) : (

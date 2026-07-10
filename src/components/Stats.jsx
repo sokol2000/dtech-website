@@ -23,10 +23,10 @@ export default function Stats() {
 
         {/* Contatore views: numero dominante → spiegazione → contesto */}
         <Reveal delay={0.2}>
-          <div className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-900 p-10 text-center md:mt-16 md:p-14">
+          <div className="relative mt-14 overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-900 p-6 py-10 text-center sm:p-10 md:mt-16 md:p-14">
             <div className="pointer-events-none absolute inset-0 glow-radial opacity-40" />
             <div className="relative">
-              <div className="font-display text-6xl font-extrabold tracking-tight text-white md:text-7xl">
+              <div className="font-display text-[2.55rem] font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl">
                 <Counter to={VIEWS_COUNT} duration={2.6} format />
               </div>
               <p className="mx-auto mt-4 max-w-md text-lg font-medium text-white/75">

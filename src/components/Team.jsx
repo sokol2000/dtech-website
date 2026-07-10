@@ -83,15 +83,19 @@ function TeamCard({ m, big = false, delay = 0 }) {
         </div>
 
         {/* Testo */}
-        <div className="flex flex-1 flex-col px-4 py-4 text-center md:px-5 md:py-5">
-          <h3 className={`font-display font-bold leading-tight text-white ${big ? 'text-xl md:text-2xl' : 'text-lg'}`}>
+        <div className="flex flex-1 flex-col px-3 py-3.5 text-center sm:px-4 sm:py-4 md:px-5 md:py-5">
+          <h3 className={`font-display font-bold leading-tight text-white ${big ? 'text-xl md:text-2xl' : 'text-base sm:text-lg'}`}>
             {m.name}
           </h3>
-          <p className="mt-1.5 text-sm font-semibold leading-snug text-orange">{m.role}</p>
+          <p className={`mt-1.5 font-semibold leading-snug text-orange ${big ? 'text-sm' : 'text-xs sm:text-sm'}`}>
+            {m.role}
+          </p>
           {m.subrole && (
             <p className="mt-0.5 text-sm font-medium leading-snug text-white/75">{m.subrole}</p>
           )}
-          <p className="mt-2.5 text-sm leading-relaxed text-white/50">{m.desc}</p>
+          <p className={`mt-2 leading-relaxed text-white/50 sm:mt-2.5 ${big ? 'text-sm' : 'text-xs sm:text-sm'}`}>
+            {m.desc}
+          </p>
         </div>
       </motion.div>
     </Reveal>
@@ -127,8 +131,8 @@ export default function Team() {
           ))}
         </div>
 
-        {/* Riga 2 — Team */}
-        <div className="mx-auto mt-4 grid max-w-sm grid-cols-1 gap-5 sm:mt-6 sm:max-w-md sm:grid-cols-2 sm:gap-5 lg:max-w-4xl lg:grid-cols-4">
+        {/* Riga 2 — Team (2 colonne anche su mobile: sezione più compatta) */}
+        <div className="mx-auto mt-4 grid max-w-sm grid-cols-2 gap-3 sm:mt-6 sm:max-w-md sm:gap-5 lg:max-w-4xl lg:grid-cols-4">
           {members.map((m, i) => (
             <TeamCard key={m.name} m={m} delay={i * 0.08} />
           ))}
