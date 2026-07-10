@@ -2,12 +2,11 @@
 
 // Immagini importate come moduli: Vite riscrive i path correttamente anche
 // sotto il subpath di GitHub Pages (es. /dtech-website/).
-import teamDario from './assets/team/dario-testarella.webp'
-import teamDiego from './assets/team/diego-testarella.webp'
-import teamFilippoM from './assets/team/filippo-mostarda.webp'
-import teamFilippoR from './assets/team/filippo-rossi.webp'
-import teamMauro from './assets/team/mauro-rossi.webp'
-import teamNoemi from './assets/team/noemi-rossi.webp'
+import teamDiego from './assets/team/diego.webp'
+import teamNoemi from './assets/team/noemi.webp'
+import teamFilippo from './assets/team/filippo.webp'
+import teamDavide from './assets/team/davide.webp'
+import teamMatteo from './assets/team/matteo.webp'
 import logoAutoscuola from './assets/clients/autoscuola-ternana.webp'
 import logoCustode from './assets/clients/il-custode-del-tempo.webp'
 import logoOsaka from './assets/clients/osaka.webp'
@@ -41,10 +40,10 @@ export const SOCIALS = [
 
 export const NAV_LINKS = [
   { label: 'Chi siamo', href: '#chi-siamo' },
-  { label: 'Servizi', href: '#servizi' },
   { label: 'Metodo', href: '#metodo' },
   { label: 'Team', href: '#team' },
   { label: 'Clienti', href: '#clienti' },
+  { label: 'Servizi', href: '#servizi' },
   { label: 'Contatti', href: '#contatti' },
 ]
 
@@ -54,7 +53,7 @@ export const STATS = [
   { value: 88, suffix: '%', label: 'Clienti soddisfatti' },
 ]
 
-export const VIEWS_COUNT = 83615309
+export const VIEWS_COUNT = 542918673
 
 export const SERVICES = [
   {
@@ -110,14 +109,47 @@ export const METHOD_STEPS = [
   { n: '08', title: 'Social Media Management', text: 'Gestiamo, misuriamo e miglioriamo di continuo.' },
 ]
 
-// Founder: true → prima riga, ritratto più grande. bio = testo che appare in hover.
+// founder: true → prima riga, card più grande. photo: null → Dario (il capo) non
+// compare in foto: card "executive" con composizione astratta.
 export const TEAM = [
-  { name: 'Dario Testarella', photo: teamDario, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', founder: true, linkedin: '#' },
-  { name: 'Diego Testarella', photo: teamDiego, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', founder: true, linkedin: '#' },
-  { name: 'Filippo Mostarda', photo: teamFilippoM, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
-  { name: 'Filippo Rossi', photo: teamFilippoR, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
-  { name: 'Mauro Rossi', photo: teamMauro, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
-  { name: 'Noemi Rossi', photo: teamNoemi, role: 'Ruolo', bio: 'Specializzato in Digital Strategy', linkedin: '#' },
+  {
+    name: 'Diego',
+    photo: teamDiego,
+    role: 'CEO & CTO',
+    desc: 'Traduce la strategia in prodotti digitali solidi, costruiti per crescere.',
+    founder: true,
+  },
+  {
+    name: 'Dario',
+    photo: null,
+    role: 'Co-CEO & COO',
+    desc: 'L’organizzazione e le relazioni che reggono ogni progetto. Dietro le quinte, dove nascono i risultati.',
+    founder: true,
+  },
+  {
+    name: 'Noemi',
+    photo: teamNoemi,
+    role: 'Head of Brand & Visual Design',
+    desc: 'Costruisce identità visive che rendono un brand riconoscibile e coerente.',
+  },
+  {
+    name: 'Filippo',
+    photo: teamFilippo,
+    role: 'Account Manager',
+    desc: 'Il punto di riferimento del cliente, dal primo confronto alla consegna.',
+  },
+  {
+    name: 'Davide',
+    photo: teamDavide,
+    role: 'Social Media & Lead Generation Manager',
+    desc: 'Genera visibilità e richieste concrete con contenuti e campagne mirate.',
+  },
+  {
+    name: 'Matteo',
+    photo: teamMatteo,
+    role: 'Head of Video Production & Editing',
+    desc: 'Realizza video che catturano l’attenzione e restano impressi.',
+  },
 ]
 
 // logo: importato da src/assets/clients. video: da collegare più avanti.

@@ -23,6 +23,8 @@ export default {
         // Codec Pro (brand) con fallback geometrici free
         display: ['"Codec Pro"', 'Poppins', 'system-ui', 'sans-serif'],
         sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+        // Serif display editoriale per lo statement "manifesto"
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       maxWidth: {
         container: '1920px',

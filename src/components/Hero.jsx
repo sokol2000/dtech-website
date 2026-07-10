@@ -20,21 +20,16 @@ export default function Hero() {
 
       <div className="container-x">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="kicker justify-center"
-          >
-            Digital Marketing Studio · Terni
-          </motion.span>
-
-          <h1 className="mt-6 font-display text-[2.2rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl sm:leading-[0.98] md:text-7xl lg:text-[5.5rem]">
-            <WordReveal text="Crescita digitale" delay={0.35} />
-            <br />
-            <WordReveal text="con **metodo**," delay={0.6} />
-            <br />
-            <WordReveal text="non con **tentativi**." delay={0.85} />
+          <h1 className="font-display text-[1.75rem] font-extrabold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl md:leading-[1.04] lg:text-7xl">
+            <span className="block whitespace-nowrap">
+              <WordReveal text="Pensiamo in **grande**," delay={0.2} />
+            </span>
+            <span className="block whitespace-nowrap">
+              <WordReveal text="per offrire" delay={0.45} />
+            </span>
+            <span className="block whitespace-nowrap">
+              <WordReveal text="**grandi** **soluzioni**." delay={0.7} />
+            </span>
           </h1>
 
           <motion.div

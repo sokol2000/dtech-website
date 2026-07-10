@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Reveal, WordReveal } from './motion'
+import { Reveal } from './motion'
 import Icon from './Icons'
 import { CASES } from '../content'
 
@@ -7,18 +7,21 @@ export default function CasiStudio() {
   return (
     <section id="clienti" className="relative py-12 md:py-14">
       <div className="container-x">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <span className="kicker justify-center">
               I nostri clienti
             </span>
           </Reveal>
-          <h2 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-            <WordReveal text="Risultati che **parlano**." />
-          </h2>
+          <Reveal delay={0.08}>
+            <h2 className="mx-auto mt-6 max-w-4xl font-display text-[1.7rem] font-extrabold leading-[1.5] tracking-tight text-white sm:text-3xl md:text-[2.5rem]">
+              Chi smette di fare pubblicità per risparmiare soldi è come se{' '}
+              <span className="text-orange">fermasse l’orologio per risparmiare tempo</span>.
+            </h2>
+          </Reveal>
           <Reveal delay={0.15}>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">
-              Aziende che hanno scelto di crescere con noi e hanno ottenuto risultati misurabili.
+              Aziende che hanno scelto il nostro metodo.
             </p>
           </Reveal>
         </div>
