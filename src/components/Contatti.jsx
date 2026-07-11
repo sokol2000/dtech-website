@@ -5,15 +5,21 @@ import { CONTACT } from '../content'
 
 const waLink = `https://wa.me/${CONTACT.whatsapp}`
 
+// Su mobile mailto: apre l'app email nativa (es. Gmail installata) — è il
+// comportamento giusto. Su desktop invece il client di sistema può essere
+// qualsiasi cosa (es. Edge): meglio aprire Gmail web con destinatario pronto.
+const isMobileDevice =
+  typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
 const INFO = [
   {
     icon: 'mail',
     label: 'Email',
     value: CONTACT.email,
-    // Compose Gmail con destinatario precompilato: mailto: aprirebbe il client
-    // di sistema (che sul Mac dell'utente può essere qualsiasi cosa, es. Edge).
-    href: `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT.email}`,
-    external: true,
+    href: isMobileDevice
+      ? `mailto:${CONTACT.email}`
+      : `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT.email}`,
+    external: !isMobileDevice,
   },
   { icon: 'phone', label: 'Telefono', value: CONTACT.phoneDisplay, href: `tel:+${CONTACT.phoneRaw}` },
   {
