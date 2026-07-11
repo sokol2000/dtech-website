@@ -73,11 +73,18 @@ export default function Servizi() {
                 </ul>
 
                 {/* Citazione di chiusura */}
-                <p className="mt-auto border-t border-white/10 pt-4 font-serif text-[1.25rem] font-semibold italic leading-snug text-white">
-                  <span className="mr-1 not-italic text-orange">“</span>
-                  {g.quote}
-                  <span className="ml-1 not-italic text-orange">”</span>
-                </p>
+                <figure className="mt-auto border-t border-white/10 pt-4">
+                  <blockquote className="font-serif text-[1.25rem] font-semibold italic leading-snug text-white">
+                    <span className="mr-1 not-italic text-orange">“</span>
+                    {g.quote}
+                    <span className="ml-1 not-italic text-orange">”</span>
+                  </blockquote>
+                  {g.author && (
+                    <figcaption className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
+                      — {g.author}
+                    </figcaption>
+                  )}
+                </figure>
               </article>
             </Reveal>
           ))}

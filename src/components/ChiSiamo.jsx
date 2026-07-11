@@ -88,7 +88,7 @@ export default function ChiSiamo() {
               produce contenuti e affianca i brand come <span className="text-white">advisor</span>{' '}
               sulla loro identità. Grazie al nostro{' '}
               <span className="text-orange">Metodo Kaizen</span> non ci limitiamo a eseguire:{' '}
-              <span className="text-white">ascoltiamo, analizziamo, proponiamo</span>. Ogni cliente ha
+              <span className="text-white">ascoltiamo, analizziamo e proponiamo</span>. Ogni cliente ha
               una voce diversa da trovare e amplificare: il nostro compito è renderla riconoscibile,
               coerente e capace di durare oltre la singola campagna.
             </p>
@@ -109,6 +109,9 @@ export default function ChiSiamo() {
               ”
             </span>
           </blockquote>
+          <p className="mt-5 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white/40 md:mt-6">
+            — Seth Godin
+          </p>
         </FadeIn>
       </div>
     </section>

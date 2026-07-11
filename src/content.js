@@ -68,6 +68,7 @@ export const SERVICE_GROUPS = [
       { name: 'Consulenza strategica di comunicazione', desc: 'piani editoriali e calendari integrati multicanale' },
     ],
     quote: 'L’obiettivo è conoscere e comprendere il cliente così a fondo che il prodotto o il servizio si venda da solo.',
+    author: 'Peter Drucker',
   },
   {
     icon: 'creativity',
@@ -79,6 +80,7 @@ export const SERVICE_GROUPS = [
       { name: 'Fotografia e produzione creativa', desc: 'shooting di prodotto, still life e ritratti di brand' },
     ],
     quote: 'I prodotti si creano in fabbrica, i brand si creano nella mente.',
+    author: 'Walter Landor',
   },
   {
     icon: 'communication',
@@ -90,6 +92,7 @@ export const SERVICE_GROUPS = [
       { name: 'Employer branding', desc: 'comunicazione interna e recruiting marketing' },
     ],
     quote: 'Le persone non comprano prodotti e servizi, ma relazioni, storie e magia.',
+    author: 'Seth Godin',
   },
   {
     icon: 'social-media',
@@ -101,6 +104,7 @@ export const SERVICE_GROUPS = [
       { name: 'Influencer marketing', desc: 'selezione e gestione delle collaborazioni con i creator' },
     ],
     quote: 'Il miglior marketing è quello che non sembra marketing.',
+    author: 'Tom Fishburne',
   },
   {
     icon: 'ads',

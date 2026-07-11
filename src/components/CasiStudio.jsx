@@ -19,6 +19,11 @@ export default function CasiStudio() {
               <span className="text-orange">fermasse l’orologio per risparmiare tempo</span>.
             </h2>
           </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/40">
+              — Henry Ford
+            </p>
+          </Reveal>
           <Reveal delay={0.15}>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">
               Aziende che hanno scelto il nostro metodo.
