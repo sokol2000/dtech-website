@@ -109,9 +109,6 @@ export default function Metodo() {
                 <h3 className="font-display text-xl font-bold leading-snug text-white md:text-[1.35rem]">
                   La tua presenza digitale è pronta a crescere.
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-white/50">
-                  Da questo momento inizia il miglioramento continuo.
-                </p>
               </div>
             </Reveal>
           </li>

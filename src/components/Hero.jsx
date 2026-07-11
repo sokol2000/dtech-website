@@ -20,7 +20,7 @@ export default function Hero() {
 
       <div className="container-x">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <h1 className="font-display text-[1.75rem] font-extrabold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl md:leading-[1.04] lg:text-7xl">
+          <h1 className="font-display text-[1.9rem] font-extrabold leading-[1.18] tracking-tight min-[410px]:text-[2.05rem] sm:text-5xl sm:leading-[1.14] md:text-6xl md:leading-[1.12] lg:text-7xl">
             <span className="block whitespace-nowrap">
               <WordReveal text="Pensiamo in **grande**," delay={0.2} />
             </span>
@@ -36,17 +36,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.6, duration: 0.7 }}
-            className="mt-10 flex justify-center"
+            className="mt-8 flex justify-center sm:mt-10"
           >
             <MagneticButton
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-orange px-7 py-3.5 text-base font-bold text-ink-950 shadow-glow animate-pulse-glow sm:gap-3 sm:px-10 sm:py-5 sm:text-[1.05rem]"
+              className="group inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-[0.95rem] font-bold text-ink-950 shadow-glow animate-pulse-glow sm:gap-3 sm:px-10 sm:py-5 sm:text-[1.05rem]"
             >
-              <Icon name="whatsapp" className="h-5 w-5" />
+              <Icon name="whatsapp" className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" />
               Scrivici su WhatsApp
-              <Icon name="arrow" className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Icon name="arrow" className="h-[1.15rem] w-[1.15rem] transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
             </MagneticButton>
           </motion.div>
 
@@ -55,12 +55,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8, duration: 0.7 }}
-            className="mt-9 flex flex-col items-center gap-4 md:hidden"
+            className="mt-11 flex flex-col items-center gap-3.5 md:hidden"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
-              Guarda i nostri risultati
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/45">
+              Guarda chi siamo
             </span>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3.5">
               {SOCIALS.map((s) => (
                 <a
                   key={s.name}
@@ -68,9 +68,9 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.name}
-                  className="social-pulse flex h-14 w-14 items-center justify-center rounded-full border border-orange/70 bg-orange/10 text-white transition-colors hover:bg-orange hover:text-ink-950"
+                  className="social-pulse flex h-11 w-11 items-center justify-center rounded-full border border-orange/70 bg-orange/10 text-white transition-colors hover:bg-orange hover:text-ink-950"
                 >
-                  <Icon name={s.icon} className="h-6 w-6" />
+                  <Icon name={s.icon} className="h-[1.15rem] w-[1.15rem]" />
                 </a>
               ))}
             </div>

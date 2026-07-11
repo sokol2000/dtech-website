@@ -6,7 +6,15 @@ import { CONTACT } from '../content'
 const waLink = `https://wa.me/${CONTACT.whatsapp}`
 
 const INFO = [
-  { icon: 'mail', label: 'Email', value: CONTACT.email, href: `mailto:${CONTACT.email}` },
+  {
+    icon: 'mail',
+    label: 'Email',
+    value: CONTACT.email,
+    // Compose Gmail con destinatario precompilato: mailto: aprirebbe il client
+    // di sistema (che sul Mac dell'utente può essere qualsiasi cosa, es. Edge).
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT.email}`,
+    external: true,
+  },
   { icon: 'phone', label: 'Telefono', value: CONTACT.phoneDisplay, href: `tel:+${CONTACT.phoneRaw}` },
   {
     icon: 'pin',
