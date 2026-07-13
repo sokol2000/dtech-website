@@ -49,10 +49,7 @@ export default function CasiStudio() {
                   />
                 </div>
 
-                <span className="mt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-orange sm:mt-5">
-                  {c.tag}
-                </span>
-                <h3 className="mt-1.5 font-display text-base font-bold leading-tight text-white sm:text-lg">
+                <h3 className="mt-4 font-display text-base font-bold leading-tight text-white sm:mt-5 sm:text-lg">
                   {c.client}
                 </h3>
 

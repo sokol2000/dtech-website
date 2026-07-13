@@ -7,10 +7,17 @@ import teamNoemi from './assets/team/noemi.webp'
 import teamFilippo from './assets/team/filippo.webp'
 import teamDavide from './assets/team/davide.webp'
 import teamMatteo from './assets/team/matteo.webp'
+import logoAloha from './assets/clients/aloha.webp'
 import logoAutoscuola from './assets/clients/autoscuola-ternana.webp'
-import logoCustode from './assets/clients/il-custode-del-tempo.webp'
+import logoCaffezero from './assets/clients/caffezero.webp'
+import logoCustode from './assets/clients/custode-del-tempo.webp'
+import logoMichelangelo from './assets/clients/hotel-michelangelo.webp'
+import logoLilliput from './assets/clients/lilliput.webp'
+import logoWasher from './assets/clients/mypersonalwasher.webp'
+import logoNoma from './assets/clients/noma.webp'
 import logoOsaka from './assets/clients/osaka.webp'
 import logoPaci from './assets/clients/paciautoquattro.webp'
+import logoYou from './assets/clients/you-immobiliare.webp'
 
 export const CONTACT = {
   email: 'info@dtechstudiosrl.com',
@@ -22,15 +29,12 @@ export const CONTACT = {
 }
 
 // Dati societari per il footer (obblighi art. 2250 c.c. e normativa collegata).
-// I campi "serve" vanno compilati con i dati ufficiali della società.
 export const LEGAL = {
   ragioneSociale: 'D-Tech Studios S.r.l.',
   sedeLegale: 'Piazza Cornelio Tacito 2, 05100 Terni (TR)',
   piva: '01743030551',
-  codiceFiscale: 'serve',
-  rea: 'TR - serve',
-  capitaleSociale: 'serve',
-  pec: 'serve',
+  sdi: '6EWHWLT',
+  pec: 'dtechstudios@pec.it',
   privacyPolicyUrl: '#', // serve: URL della Privacy Policy (es. iubenda)
   cookiePolicyUrl: '#', // serve: URL della Cookie Policy (es. iubenda)
 }
@@ -181,7 +185,7 @@ export const TEAM = [
     name: 'Filippo',
     photo: teamFilippo,
     role: 'Account Manager',
-    desc: 'Il punto di riferimento del cliente, dal primo confronto alla consegna.',
+    desc: 'Il punto di riferimento del cliente.',
   },
   {
     name: 'Davide',
@@ -197,38 +201,72 @@ export const TEAM = [
   },
 ]
 
-// logo: importato da src/assets/clients. video: da collegare più avanti.
+// logo: importato da src/assets/clients. Ordine volutamente mescolato.
 export const CASES = [
   {
+    client: 'Noma',
+    logo: logoNoma,
+    instagram: 'https://www.instagram.com/nomafusion/',
+    tiktok: 'https://www.tiktok.com/@nomafusion',
+  },
+  {
     client: 'Autoscuola Ternana',
-    tag: 'Video · Social',
     logo: logoAutoscuola,
     instagram: 'https://www.instagram.com/autoscuolaternana/',
     tiktok: 'https://www.tiktok.com/@autoscuolaternana',
-    video: 'caso-studio-autoscuola-ternana.mp4',
+  },
+  {
+    client: 'You Immobiliare',
+    logo: logoYou,
+    instagram: 'https://www.instagram.com/youimmobiliare/',
+    tiktok: 'https://www.tiktok.com/@youimmobiliare',
+  },
+  {
+    client: 'Caffezero',
+    logo: logoCaffezero,
+    instagram: 'https://www.instagram.com/caffezero_official/',
+    tiktok: 'https://www.tiktok.com/@caffezero',
   },
   {
     client: 'Il Custode del Tempo',
-    tag: 'Branding · Video',
     logo: logoCustode,
     instagram: 'https://www.instagram.com/ilcustodedeltempo/',
     tiktok: 'https://www.tiktok.com/@ilcustodedeltempo',
-    video: 'caso-studio-custode-del-tempo-orologi-1.mp4',
-  },
-  {
-    client: 'Osaka',
-    tag: 'Content · ADV',
-    logo: logoOsaka,
-    instagram: 'https://www.instagram.com/osakaterni/',
-    tiktok: 'https://www.tiktok.com/@osakaterni',
-    video: 'caso-studio-sushi-terni.mp4',
   },
   {
     client: 'PaciAutoquattro',
-    tag: 'Social · Video',
     logo: logoPaci,
     instagram: 'https://www.instagram.com/paciautoquattro/',
     tiktok: 'https://www.tiktok.com/@paciautoquattrospa',
-    video: null,
+  },
+  {
+    client: 'Aloha',
+    logo: logoAloha,
+    instagram: 'https://www.instagram.com/aloha.sailingthesea/',
+    tiktok: 'https://www.tiktok.com/@aloha.sailingthesea',
+  },
+  {
+    client: 'Hotel Michelangelo',
+    logo: logoMichelangelo,
+    instagram: 'https://www.instagram.com/hotelpalace_michelangelo/',
+    tiktok: 'https://www.tiktok.com/@hotelpalace_michelangelo',
+  },
+  {
+    client: 'Osaka',
+    logo: logoOsaka,
+    instagram: 'https://www.instagram.com/osakaterni/',
+    tiktok: 'https://www.tiktok.com/@osakaterni',
+  },
+  {
+    client: 'Lilliput',
+    logo: logoLilliput,
+    instagram: 'https://www.instagram.com/lilliput.terni/',
+    tiktok: 'https://www.tiktok.com/@lilliput.terni',
+  },
+  {
+    client: 'My Personal Washer',
+    logo: logoWasher,
+    instagram: 'https://www.instagram.com/mypersonalwasher/',
+    tiktok: 'https://www.tiktok.com/@mypersonalwasher3',
   },
 ]

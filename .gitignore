@@ -14,3 +14,7 @@ yarn-error.log*
 # asset sorgente originali (pesanti) — le versioni ottimizzate sono in src/assets
 /team/
 /clients_icon/
+
+# sorgenti loghi clienti (pdf/png originali) — si usano i .webp
+src/assets/clients/*.pdf
+src/assets/clients/*.png

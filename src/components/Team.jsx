@@ -118,8 +118,7 @@ export default function Team() {
           </h2>
           <Reveal delay={0.15}>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60">
-              Specialisti coordinati come un’unica squadra: a ogni progetto le competenze giuste,
-              dalla strategia ai risultati.
+              “Da soli si va veloci, insieme si va lontano.”
             </p>
           </Reveal>
         </div>

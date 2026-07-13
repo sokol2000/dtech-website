@@ -15,8 +15,7 @@ export default function Footer() {
           <div className="md:col-span-4">
             <Logo variant="full" className="h-24 w-auto text-white" />
             <p className="mt-6 max-w-sm text-white/50">
-              Crescita digitale con metodo, non con tentativi. Agenzia di Digital Marketing a
-              Terni.
+              Pensiamo in grande, per offrire grandi soluzioni.
             </p>
           </div>
 
@@ -38,7 +37,10 @@ export default function Footer() {
               </li>
               <li>{CONTACT.address}</li>
               <li>
-                PEC: <span className="text-white/50">{LEGAL.pec}</span>
+                PEC:{' '}
+                <a href={`mailto:${LEGAL.pec}`} className="transition-colors hover:text-orange">
+                  {LEGAL.pec}
+                </a>
               </li>
             </ul>
           </div>
@@ -52,9 +54,7 @@ export default function Footer() {
               <li>{LEGAL.ragioneSociale}</li>
               <li>Sede legale: {LEGAL.sedeLegale}</li>
               <li>P.IVA: {LEGAL.piva}</li>
-              <li>C.F.: {LEGAL.codiceFiscale}</li>
-              <li>REA: {LEGAL.rea}</li>
-              <li>Capitale sociale: {LEGAL.capitaleSociale}</li>
+              <li>Codice SDI: {LEGAL.sdi}</li>
             </ul>
           </div>
         </div>

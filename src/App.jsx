@@ -10,6 +10,7 @@ import Contatti from './components/Contatti'
 import Footer from './components/Footer'
 import CursorDot from './components/CursorDot'
 import Intro from './components/Intro'
+import CookieBanner from './components/CookieBanner'
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
         </div>
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   )
 }
