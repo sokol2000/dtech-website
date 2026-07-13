@@ -21,6 +21,20 @@ export const CONTACT = {
   company: 'D-Tech Studios S.r.l.',
 }
 
+// Dati societari per il footer (obblighi art. 2250 c.c. e normativa collegata).
+// I campi "serve" vanno compilati con i dati ufficiali della società.
+export const LEGAL = {
+  ragioneSociale: 'D-Tech Studios S.r.l.',
+  sedeLegale: 'Piazza Cornelio Tacito 2, 05100 Terni (TR)',
+  piva: '01743030551',
+  codiceFiscale: 'serve',
+  rea: 'TR - serve',
+  capitaleSociale: 'serve',
+  pec: 'serve',
+  privacyPolicyUrl: '#', // serve: URL della Privacy Policy (es. iubenda)
+  cookiePolicyUrl: '#', // serve: URL della Cookie Policy (es. iubenda)
+}
+
 export const SOCIALS = [
   {
     name: 'Instagram',

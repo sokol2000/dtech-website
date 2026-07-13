@@ -21,7 +21,9 @@ export default function Logo({ variant = 'mark', className = 'h-9 w-auto text-wh
     return (
       <svg
         className={className}
-        viewBox="108 208 432 494"
+        // viewBox largo abbastanza da contenere l'intera scritta STUDIOS:
+        // con quello stretto del mark le "S" ai lati venivano croppate.
+        viewBox="52 208 532 494"
         fill="currentColor"
         fillRule="nonzero"
         role="img"
@@ -30,7 +32,7 @@ export default function Logo({ variant = 'mark', className = 'h-9 w-auto text-wh
       >
         {MARK_PATHS}
         <text
-          x="326"
+          x="318"
           y="688"
           textAnchor="middle"
           fontFamily="Poppins, sans-serif"
