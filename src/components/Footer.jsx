@@ -35,7 +35,6 @@ export default function Footer() {
                   {CONTACT.phoneDisplay}
                 </a>
               </li>
-              <li>{CONTACT.address}</li>
               <li>
                 PEC:{' '}
                 <a href={`mailto:${LEGAL.pec}`} className="transition-colors hover:text-orange">
@@ -60,9 +59,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/40 sm:flex-row">
-          <span>
-            © 2026 {LEGAL.ragioneSociale} · P.IVA {LEGAL.piva}. Tutti i diritti riservati.
-          </span>
+          <span>© 2026 {LEGAL.ragioneSociale} · Tutti i diritti riservati.</span>
           <span className="flex items-center gap-5">
             <a href={LEGAL.privacyPolicyUrl} className="transition-colors hover:text-orange">
               Privacy Policy
@@ -71,7 +68,17 @@ export default function Footer() {
               Cookie Policy
             </a>
           </span>
-          <span>Fatto da Sokol Kolgjini</span>
+          <span>
+            Sito realizzato da{' '}
+            <a
+              href="https://github.com/sokol2000"
+              target="_blank"
+              rel="author noopener"
+              className="font-semibold text-white/60 transition-colors hover:text-orange"
+            >
+              Sokol Kolgjini
+            </a>
+          </span>
         </div>
       </div>
     </footer>

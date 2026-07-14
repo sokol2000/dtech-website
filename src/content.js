@@ -204,12 +204,6 @@ export const TEAM = [
 // logo: importato da src/assets/clients. Ordine volutamente mescolato.
 export const CASES = [
   {
-    client: 'Noma',
-    logo: logoNoma,
-    instagram: 'https://www.instagram.com/nomafusion/',
-    tiktok: 'https://www.tiktok.com/@nomafusion',
-  },
-  {
     client: 'Autoscuola Ternana',
     logo: logoAutoscuola,
     instagram: 'https://www.instagram.com/autoscuolaternana/',
@@ -268,5 +262,11 @@ export const CASES = [
     logo: logoWasher,
     instagram: 'https://www.instagram.com/mypersonalwasher/',
     tiktok: 'https://www.tiktok.com/@mypersonalwasher3',
+  },
+  {
+    client: 'Noma',
+    logo: logoNoma,
+    instagram: 'https://www.instagram.com/nomafusion/',
+    tiktok: 'https://www.tiktok.com/@nomafusion',
   },
 ]
