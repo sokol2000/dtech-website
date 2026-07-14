@@ -1,5 +1,5 @@
 import Logo from './Logo'
-import { CONTACT, LEGAL } from '../content'
+import { LEGAL } from '../content'
 
 /*
  * Footer con le informazioni obbligatorie per legge (art. 2250 c.c.,
@@ -12,40 +12,15 @@ export default function Footer() {
       <div className="container-x py-16">
         <div className="grid gap-10 md:grid-cols-12">
           {/* Brand */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-7">
             <Logo variant="full" className="h-24 w-auto text-white" />
             <p className="mt-6 max-w-sm text-white/50">
               Pensiamo in grande, per offrire grandi soluzioni.
             </p>
           </div>
 
-          {/* Contatti */}
-          <div className="md:col-span-4">
-            <div className="mb-4 text-xs font-bold uppercase tracking-widest text-white/40">
-              Contatti
-            </div>
-            <ul className="space-y-2.5 text-white/70">
-              <li>
-                <a href={`mailto:${CONTACT.email}`} className="transition-colors hover:text-orange">
-                  {CONTACT.email}
-                </a>
-              </li>
-              <li>
-                <a href={`tel:+${CONTACT.phoneRaw}`} className="transition-colors hover:text-orange">
-                  {CONTACT.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                PEC:{' '}
-                <a href={`mailto:${LEGAL.pec}`} className="transition-colors hover:text-orange">
-                  {LEGAL.pec}
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Dati societari */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-5">
             <div className="mb-4 text-xs font-bold uppercase tracking-widest text-white/40">
               Dati societari
             </div>
@@ -54,6 +29,12 @@ export default function Footer() {
               <li>Sede legale: {LEGAL.sedeLegale}</li>
               <li>P.IVA: {LEGAL.piva}</li>
               <li>Codice SDI: {LEGAL.sdi}</li>
+              <li>
+                PEC:{' '}
+                <a href={`mailto:${LEGAL.pec}`} className="transition-colors hover:text-orange">
+                  {LEGAL.pec}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -70,14 +51,7 @@ export default function Footer() {
           </span>
           <span>
             Sito realizzato da{' '}
-            <a
-              href="https://github.com/sokol2000"
-              target="_blank"
-              rel="author noopener"
-              className="font-semibold text-white/60 transition-colors hover:text-orange"
-            >
-              Sokol Kolgjini
-            </a>
+            <span className="font-semibold text-white/60">Sokol Kolgjini</span>
           </span>
         </div>
       </div>
