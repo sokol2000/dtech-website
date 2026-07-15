@@ -14,6 +14,7 @@ import logoCustode from './assets/clients/custode-del-tempo.webp'
 import logoMichelangelo from './assets/clients/hotel-michelangelo.webp'
 import logoLilliput from './assets/clients/lilliput.webp'
 import logoWasher from './assets/clients/mypersonalwasher.webp'
+import logoMichele from './assets/clients/bar-da-michele.webp'
 import logoNoma from './assets/clients/noma.webp'
 import logoOsaka from './assets/clients/osaka.webp'
 import logoPaci from './assets/clients/paciautoquattro.webp'
@@ -262,6 +263,12 @@ export const CASES = [
     logo: logoWasher,
     instagram: 'https://www.instagram.com/mypersonalwasher/',
     tiktok: 'https://www.tiktok.com/@mypersonalwasher3',
+  },
+  {
+    client: 'Bar da Michele',
+    logo: logoMichele,
+    instagram: 'https://www.instagram.com/vecchiocorso__damichele',
+    tiktok: 'https://www.tiktok.com/@vecchiocorso_dami',
   },
   {
     client: 'Noma',
