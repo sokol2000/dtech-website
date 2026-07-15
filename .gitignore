@@ -18,3 +18,5 @@ yarn-error.log*
 # sorgenti loghi clienti (pdf/png originali) — si usano i .webp
 src/assets/clients/*.pdf
 src/assets/clients/*.png
+src/assets/clients/*.jpeg
+src/assets/clients/*.jpg
