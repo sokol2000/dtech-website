@@ -27,7 +27,9 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm leading-relaxed text-white/50">
               <li>{LEGAL.ragioneSociale}</li>
               <li>Sede legale: {LEGAL.sedeLegale}</li>
-              <li>P.IVA: {LEGAL.piva}</li>
+              <li>C.F. e P.IVA: {LEGAL.cfPiva}</li>
+              <li>REA: {LEGAL.rea}</li>
+              <li>Capitale sociale: {LEGAL.capitaleSociale}</li>
               <li>Codice SDI: {LEGAL.sdi}</li>
               <li>
                 PEC:{' '}

@@ -33,7 +33,10 @@ export const CONTACT = {
 export const LEGAL = {
   ragioneSociale: 'D-Tech Studios S.r.l.',
   sedeLegale: 'Piazza Cornelio Tacito 2, 05100 Terni (TR)',
-  piva: '01743030551',
+  // C.F. e P.IVA coincidono
+  cfPiva: '01743030551',
+  rea: 'TR - 372186',
+  capitaleSociale: '€ 10.000,00',
   sdi: '6EWHWLT',
   pec: 'dtechstudios@pec.it',
   privacyPolicyUrl: '#', // serve: URL della Privacy Policy (es. iubenda)
